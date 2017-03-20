@@ -4,9 +4,9 @@ public class Account
 {
 	private double balance;
 	
-	public Account(double money)
+	public Account(double balance)
 	{
-		if(money > 0.00) balance = money;
+		if(balance > 0.00) this.balance = balance;
 	}
 	
 	public void credit( double addingmoney)
