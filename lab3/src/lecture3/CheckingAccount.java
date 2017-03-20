@@ -2,7 +2,7 @@ package lecture3;
 
 public class CheckingAccount extends Account 
 {
-	private double balance;
+	
 	
 	private double credit_limit;
 	private double interest;

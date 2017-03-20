@@ -7,6 +7,7 @@ public class Account
 	public Account(double balance)
 	{
 		if(balance > 0.00) this.balance = balance;
+		
 	}
 	
 	public void credit( double addingmoney)

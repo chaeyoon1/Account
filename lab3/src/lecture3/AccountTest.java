@@ -8,8 +8,8 @@ public class AccountTest
 	{
 		Scanner input = new Scanner(System.in);
 		
-		Account account1 = new Account(balance);
-		Account account2 = new Account(balance);
+		Account account1 = new Account(100.00);
+		Account account2 = new Account(100.00);
 		
 		System.out.println(" // .. add money to the account");
 		System.out.println(" // .. check the balance of the account");
