@@ -1,6 +1,6 @@
 package lecture3;
 
-import java.util.Scanner;
+import java.util.Scanner; 
 
 public class AccountTest 
 {
@@ -8,43 +8,38 @@ public class AccountTest
 	{
 		Scanner input = new Scanner(System.in);
 		
-		Account account1 = new Account(100.00);
-		Account account2 = new Account(100.00);
+		CheckingAccount account1 = new CheckingAccount(0.01,0.07);
+		CheckingAccount account2 = new CheckingAccount(0.01,0.07);
 		
-		System.out.println(" // .. add money to the account");
-		System.out.println(" // .. check the balance of the account");
-		System.out.println("...");
-		System.out.printf("account1 balance: $%.2f\n",account1.returnbalance());
-		System.out.printf("account2 balance: $%.2f\n",account2.returnbalance());
+		account1.credit(100.00);
+		account2.credit(100.00);
+		System.out.printf("account1 balance: $%.2f\n",account1.getbalance());
+		System.out.printf("account2 balance: $%.2f\n",account2.getbalance());
+		
+		double creditbalance;
+		System.out.print("Enter deposit amount for account1:");
+		creditbalance = input.nextDouble();
+		account1.credit(creditbalance);
 		System.out.println();
 		
-		double debitmoney;
-		double addingmoney;
-		System.out.printf("Enter deposit amount for account1:");
-		addingmoney = input.nextDouble();
-		System.out.println();
-		System.out.printf("substracting %.2f from account1 balance\n",addingmoney);
-		account1.debit(addingmoney);
-		System.out.printf("account1 balance: $%.2f\n",account1.returnbalance());
-		System.out.printf("account2 balance: $%.2f\n",account2.returnbalance());
+		System.out.printf("account1 balance: $%.2f\n",account1.getbalance());
+		System.out.printf("account2 balance: $%.2f\n",account2.getbalance());
+		
+		double debitbalance;
+		System.out.print("Enter withdrawal amount for account2:");
+		debitbalance = input.nextDouble();
+		account2.debit(debitbalance);
 		System.out.println();
 		
-		System.out.printf("Enter withdrawal amount for account2:");
-		debitmoney = input.nextDouble();
-		System.out.println();
-		System.out.printf("substracting %.2f from account2 balance\n",debitmoney);
-		account2.debit(debitmoney);
-		
-		System.out.printf("account1 balance: $%.2f\n",account1.returnbalance());
-		System.out.printf("account2 balance: $%.2f\n",account2.returnbalance());
+		System.out.printf("account1 balance: $%.2f\n",account1.getbalance());
+		System.out.printf("account2 balance: $%.2f\n",account2.getbalance());
 		System.out.println();
 		
-		System.out.printf("next month!");
+		System.out.println("next month!");
 		account1.nextMonth();
 		account2.nextMonth();
-		System.out.printf("account1 balance: $%.2f\n",account1.returnbalance());
-		System.out.printf("account2 balance: $%.2f\n",account2.returnbalance());
-		
+		System.out.printf("account1 balance: $%.2f\n",account1.getbalance());
+		System.out.printf("account2 balance: $%.2f\n",account2.getbalance());
 		
 	}
 }

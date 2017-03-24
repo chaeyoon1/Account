@@ -1,36 +1,39 @@
 package lecture3;
 
-public class CheckingAccount extends Account 
+public class CheckingAccount extends Account
 {
-	
-	
 	private double credit_limit;
 	private double interest;
 	private double loan_interest;
-	
-	public CheckingAccount ( double balance,double credit_limitBalance, double interestRate, double loan_interestRate)
+							
+	public CheckingAccount (double interest, double loan_interest)
 	{
-		super(balance);
-		this.balance = balance;
-		credit_limit = credit_limitBalance;
-		interest = interestRate;
-		loan_interest = loan_interestRate;
+		credit_limit = balance;
+		this.interest = interest;
+		this.loan_interest = loan_interest;
 	}
 	
-	@Override
-	public void debit( double minusmoney)
+	
+	public void debit ( double debitbalance)
 	{
-		balance = balance - minusmoney;
-		
+		if( debitbalance >= credit_limit)
+		{	
+			balance = balance - debitbalance;
+		}	
+		else
+		{
+			balance = balance - debitbalance;
+			System.out.print("Debit amount exceeded account balance.\n");
+		}
 	}
 	
 	public void nextMonth()
 	{
-		interest = 0.01;
-		loan_interest = 0.07;
-		if( balance >=0)
-			balance = balance + (balance * interest);
-		else
-			balance = balance + (balance * loan_interest);
+		if(balance>=0)
+			balance = balance*(1+interest);
+		
+		else 
+			balance = balance*(1+loan_interest);
+		
 	}
 }
