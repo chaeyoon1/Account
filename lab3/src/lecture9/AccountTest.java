@@ -10,36 +10,41 @@ public class AccountTest
 		
 		Account account1 = new CheckingAccount(100,50,0.01,0.07);
 		Account account2 = new SavingAccount(100,0.05);
-		
-		System.out.printf("account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
+		//CheckingAccount
+		System.out.printf("Account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
 		
 		double debitbalance;
 		System.out.print("Enter withdrawal amount for account1:");
 		debitbalance = input.nextDouble();
 		account1.debit(debitbalance);
-		System.out.printf("account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
+		System.out.printf("Account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
 		//파산여부확인
 		
 		
+		account1.passTime(1);
+		System.out.printf("Account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
 		
-		System.out.printf("account1 balance: $%.2f\n",account1.getbalance());
-		System.out.printf("account2 balance: $%.2f\n",account2.getbalance());
+		account1.passTime(5);
+		System.out.printf("Account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
 		
-		double debitbalance;
-		System.out.print("Enter withdrawal amount for account2:");
-		debitbalance = input.nextDouble();
-		account2.debit(debitbalance);
+		
+		//SavingAccount
 		System.out.println();
+		System.out.printf("Account2 balance: $%.2f \t현재출금가능액: %.2f\n",account2.getbalance(),account2.getWithdrawableAccount());
 		
-		System.out.printf("account1 balance: $%.2f\n",account1.getbalance());
-		System.out.printf("account2 balance: $%.2f\n",account2.getbalance());
-		System.out.println();
+		System.out.printf("6 Month later!\n");
+		account2.passTime(6);
+		System.out.printf("Account2 balance: $%.2f \t현재출금가능액: %.2f\n",account2.getbalance(),account2.getWithdrawableAccount());
+		account2.debit(50);
 		
-		System.out.println("next month!");
-		account1.nextMonth();
-		account2.nextMonth();
-		System.out.printf("account1 balance: $%.2f\n",account1.getbalance());
-		System.out.printf("account2 balance: $%.2f\n",account2.getbalance());
+		System.out.println("next 6 Month later!");
+		account2.passTime(6);
+		System.out.printf("Account2 balance: $%.2f \t현재출금가능액: %.2f\n",account2.getbalance(),account2.getWithdrawableAccount());
 		
+		System.out.println("next 1 Month later!");
+		account2.passTime(1);
+		System.out.printf("Account2 balance: $%.2f \t현재출금가능액: %.2f\n",account2.getbalance(),account2.getWithdrawableAccount());
+		account2.debit(50);
+		System.out.printf("Account2 balance: $%.2f \t현재출금가능액: %.2f\n",account2.getbalance(),account2.getWithdrawableAccount());
 	}
 }

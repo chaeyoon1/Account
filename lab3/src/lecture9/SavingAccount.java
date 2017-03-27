@@ -10,32 +10,34 @@ public class SavingAccount extends Account
 		super(initialBalance);
 		this.passtimeInterest = passtimeInterest;
 		monthtime = 0;
-		withdrawableAccount=balance; 
+		
 	}
 	@Override
 	public double getWithdrawableAccount()
 	{
+		withdrawableAccount=balance; 
 		return withdrawableAccount;
 	}
 	
 	@Override
 	public void passTime(int month)
 	{
-		monthtime = month;
-		if(month < 12)
+		if(monthtime >= 12)
 		{
-			balance = balance;
+			balance = balance *Math.pow((1+passtimeInterest),12);
+			monthtime = 12;
 		}
-		else
+		else 
 		{	
-			balance = Math.pow((balance *(1+passtimeInterest)),month);
+			monthtime = monthtime + month;
+			balance = balance;
 		}
 	}
 	
 	@Override
 	public void debit( double debitbalance )
 	{
-		if(monthtime >12)
+		if(monthtime >=12)
 			balance = balance - debitbalance;
 		else
 			balance = balance;
