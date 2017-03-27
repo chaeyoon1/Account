@@ -22,7 +22,7 @@ public class SavingAccount extends Account
 	@Override
 	public void passTime(int month)
 	{
-		if(monthtime >= 12)
+		if(monthtime >= 12) 
 		{
 			balance = balance *Math.pow((1+passtimeInterest),12);
 			monthtime = 12;
