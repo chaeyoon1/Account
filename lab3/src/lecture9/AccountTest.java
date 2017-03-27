@@ -1,6 +1,6 @@
 package lecture9;
 
-import java.util.Scanner; 
+import java.util.Scanner;
 
 public class AccountTest 
 {
@@ -8,19 +8,19 @@ public class AccountTest
 	{
 		Scanner input = new Scanner(System.in);
 		
-		CheckingAccount account1 = new CheckingAccount(0.01,0.07);
-		CheckingAccount account2 = new CheckingAccount(0.01,0.07);
+		Account account1 = new CheckingAccount(100,50,0.01,0.07);
+		Account account2 = new SavingAccount(100,0.05);
 		
-		account1.credit(100.00);
-		account2.credit(100.00);
-		System.out.printf("account1 balance: $%.2f\n",account1.getbalance());
-		System.out.printf("account2 balance: $%.2f\n",account2.getbalance());
+		System.out.printf("account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
 		
-		double creditbalance;
-		System.out.print("Enter deposit amount for account1:");
-		creditbalance = input.nextDouble();
-		account1.credit(creditbalance);
-		System.out.println();
+		double debitbalance;
+		System.out.print("Enter withdrawal amount for account1:");
+		debitbalance = input.nextDouble();
+		account1.debit(debitbalance);
+		System.out.printf("account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
+		//파산여부확인
+		
+		
 		
 		System.out.printf("account1 balance: $%.2f\n",account1.getbalance());
 		System.out.printf("account2 balance: $%.2f\n",account2.getbalance());

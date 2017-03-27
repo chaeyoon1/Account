@@ -1,20 +1,21 @@
 package lecture9;
 
-//기존에 github 에 제출했던 Account, AccountTest가 완벽하지 못하다고 판단하여 새롭게 리뉴얼 하였고 이에 맞추어 
-//CheckingAccount를 작성하였음.
-
-public class Account 
+public abstract class Account 
 {
 	protected double balance;
-	//balance를 protected로 선언해야 CheckingAccount에서도 사용이 가능한데...
-	//private로 선언하는 경우에도 방법이 있는건지..
+	protected double withdrawableAccount;
 	
-	public Account()
+	public Account(double initialBalance)
 	{
-		balance = 0.00;
+		balance = initialBalance;
 	}
+	//abstract
+	public abstract double getWithdrawableAccount();
 	
-	public void credit( double creditbalance)
+	public abstract void passTime(int time);
+		
+	//credit,debit
+	public void credit ( double creditbalance)
 	{
 		balance = balance + creditbalance;
 	}
@@ -22,14 +23,7 @@ public class Account
 	
 	public void debit( double debitbalance )
 	{
-		if( balance - debitbalance >= 0)
-		{	
-			balance = balance - debitbalance;
-		}	
-		else
-		{
-			System.out.print("Debit amount exceeded account balance.\n");
-		}
+		balance = balance - debitbalance;
 	}	
 	
 	//set, get
@@ -42,7 +36,4 @@ public class Account
 	{ 
 		this.balance = balance;
 	}
-
-	
-	
 }
