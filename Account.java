@@ -5,9 +5,8 @@ package lecture9;
 
 public class Account 
 {
-	protected double balance;
-	//balance를 protected로 선언해야 CheckingAccount에서도 사용이 가능한데...
-	//private로 선언하는 경우에도 방법이 있는건지..
+	private double balance;
+	
 	
 	public Account()
 	{
