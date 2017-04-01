@@ -20,6 +20,10 @@ public class CheckingAccount extends Account
    public double getWithdrawableAccount()
    {
 	   withdrawableAccount = balance + creditLimit;
+	   if(withdrawableAccount <0)
+	   {
+		   withdrawableAccount=0;
+	   }
 	   return withdrawableAccount;
 	   
    }
@@ -34,13 +38,17 @@ public class CheckingAccount extends Account
 	   else
 	   {
 		   balance = balance *Math.pow((1+loan_interest),month);
+		   if(balance+creditLimit <0)
+		   {
+			   withdrawableAccount =0;
+		   }
 	   }
    }
    
    @Override
    public void isBankrupted()
    {
-	   if (withdrawableAccount <0)
+	   if (withdrawableAccount ==0)
 	   {
 		   System.out.println("account1 went Bankrupt!");
 	   }
