@@ -42,4 +42,9 @@ public class SavingAccount extends Account
 		else
 			balance = balance;
 	}	
+	
+	public void isBankrupted()
+	{
+		
+	}
 }

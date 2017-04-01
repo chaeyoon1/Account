@@ -36,11 +36,11 @@ public class CheckingAccount extends Account
 		   balance = balance *Math.pow((1+loan_interest),month);
 	   }
    }
-   //specific
-   //isBankrupted 일단 대충 만듬
+   
+   @Override
    public void isBankrupted()
    {
-	   if (balance>creditLimit)
+	   if (withdrawableAccount <0)
 	   {
 		   System.out.println("account1 went Bankrupt!");
 	   }

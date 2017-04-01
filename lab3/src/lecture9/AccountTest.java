@@ -19,14 +19,14 @@ public class AccountTest
 		account1.debit(debitbalance);
 		System.out.printf("Account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
 		//파산여부확인
-		
+		account1.isBankrupted();
 		
 		account1.passTime(1);
 		System.out.printf("Account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
-		
+		account1.isBankrupted();
 		account1.passTime(5);
 		System.out.printf("Account1 balance: $%.2f \t현재출금가능액: %.2f\n",account1.getbalance(),account1.getWithdrawableAccount());
-		
+		account1.isBankrupted();
 		
 		//SavingAccount
 		System.out.println();

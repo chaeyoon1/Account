@@ -14,7 +14,8 @@ public abstract class Account
 	
 	public abstract void passTime(int time);
 		
-	//credit,debit
+	public abstract void isBankrupted();
+	//credit,debt
 	public void credit ( double creditbalance)
 	{
 		balance = balance + creditbalance;
