@@ -37,7 +37,7 @@ public class AccountTest
 		System.out.printf("Account2 balance: $%.2f \t현재출금가능액: %.2f\n",account2.getbalance(),account2.getWithdrawableAccount());
 		account2.debit(50);
 		
-		System.out.println("next 6 Month later!");
+		System.out.println("next 6 Month later!"); 
 		account2.passTime(6);
 		System.out.printf("Account2 balance: $%.2f \t현재출금가능액: %.2f\n",account2.getbalance(),account2.getWithdrawableAccount());
 		
