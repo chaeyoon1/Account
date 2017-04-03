@@ -15,8 +15,8 @@ public class SavingAccount extends Account
 	@Override
 	public double getWithdrawableAccount()
 	{
-		withdrawableAccount=balance; 
-		return withdrawableAccount;
+		 
+		return balance;
 	}
 	
 	@Override
@@ -46,5 +46,11 @@ public class SavingAccount extends Account
 	public void isBankrupted()
 	{
 		
+	}
+	//implement method
+	public double estimateValue(int month)
+	{
+		balance = balance *Math.pow((1+passtimeInterest), month);
+		return balance;
 	}
 }

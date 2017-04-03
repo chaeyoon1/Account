@@ -1,15 +1,16 @@
 package lecture9;
 
-public abstract class Account 
+public abstract class Account implements Valuable
 {
 	protected double balance;
-	protected double withdrawableAccount;
+	
 	
 	public Account(double initialBalance)
 	{
 		balance = initialBalance;
 	}
 	//abstract
+	
 	public abstract double getWithdrawableAccount();
 	
 	public abstract void passTime(int time);

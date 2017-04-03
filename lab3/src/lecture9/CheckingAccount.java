@@ -1,6 +1,6 @@
 package lecture9;
 
-public class CheckingAccount extends Account
+public class CheckingAccount extends Account 
 {
    private double creditLimit;
    private double interest;
@@ -19,12 +19,12 @@ public class CheckingAccount extends Account
    @Override
    public double getWithdrawableAccount()
    {
-	   withdrawableAccount = balance + creditLimit;
-	   if(withdrawableAccount <0)
+	   
+	   if(balance + creditLimit <0)
 	   {
-		   withdrawableAccount=0;
+		   balance = -creditLimit;
 	   }
-	   return withdrawableAccount;
+	   return balance + creditLimit;
 	   
    }
    
@@ -40,7 +40,7 @@ public class CheckingAccount extends Account
 		   balance = balance *Math.pow((1+loan_interest),month);
 		   if(balance+creditLimit <0)
 		   {
-			   withdrawableAccount =0;
+			   balance = -creditLimit;
 		   }
 	   }
    }
@@ -48,7 +48,7 @@ public class CheckingAccount extends Account
    @Override
    public void isBankrupted()
    {
-	   if (withdrawableAccount ==0)
+	   if (balance+creditLimit == 0)
 	   {
 		   System.out.println("account1 went Bankrupt!");
 	   }
@@ -68,4 +68,18 @@ public class CheckingAccount extends Account
          balance*=(1+loan_interest);
       
    }
-}
+   //implement method
+   public double estimateValue(int month)
+   {
+
+	   if(balance>=0.00)
+	   {
+		   balance = balance *Math.pow((1+interest),month);
+	   }
+	   else
+	   {
+		   balance = balance *Math.pow((1+loan_interest),month);
+	   }
+	   return balance;
+   }
+}  
