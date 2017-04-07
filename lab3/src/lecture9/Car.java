@@ -13,8 +13,6 @@ public class Car implements Valuable
 	
 	public double estimateValue(int month)
 	{
-
-		
 		if(month >0)
 		{
 			price = price * 0.80;
@@ -24,7 +22,7 @@ public class Car implements Valuable
 		return price;
 	}
 	
-	public String toString()
+	public String getName()
 	{
 		return name;
 	}

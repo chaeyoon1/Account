@@ -24,12 +24,12 @@ public class ValuableTest
 		System.out.printf("6 month later Valuable : %.2f \n",objectList[1].estimateValue(6));
 		System.out.println();
 		//Human
-		System.out.printf("Human name : %s \n",objectList[2].toString());
+		System.out.printf("Human name : %s \n",((Human)objectList[2]).getName());
 		System.out.printf("registered age : %.2f \n",((Human)objectList[2]).getAge());
 		System.out.printf("6 month later Valuable : %.2f \n",objectList[2].estimateValue(6));
 		System.out.println();
 		//Car
-		System.out.printf("Car name : %s \n",objectList[3].toString());
+		System.out.printf("Car name : %s \n",((Car)objectList[3]).getName());
 		System.out.printf("initial Price : %.2f \n",objectList[3].estimateValue(0));
 		System.out.printf("6 month later Valuable : %.2f \n",objectList[3].estimateValue(6));
 	}

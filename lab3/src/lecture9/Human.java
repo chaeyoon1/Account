@@ -16,7 +16,7 @@ public class Human implements Valuable
 		return Double.POSITIVE_INFINITY;
 	}
 	
-	public String toString()
+	public String getName()
 	{
 		return name;
 	}
