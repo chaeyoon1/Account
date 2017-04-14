@@ -54,17 +54,28 @@ public class CheckingAccount extends Account
 	   }
    }
    @Override
-   public void debit ( double debitbalance)
+   public void debit ( double debitBalance) throws Exception
    {
-	   balance-=debitbalance;
+	   if(debitBalance >=0)
+	   {
+		   if(balance - debitBalance>=0)
+				balance = balance - debitBalance;
+		   else 
+		   {
+				throw new Exception("Debit amount exceeded account balance.");
+		   }
+	   }
+	   else
+	   {
+		   throw new Exception("음수입력!");
+	   }
    }
    
    public void nextMonth()
    {
-      if(balance>=0)
+	   if(balance>=0)
          balance*=(1+interest);
-      
-      else 
+	   else 
          balance*=(1+loan_interest);
       
    }

@@ -35,12 +35,16 @@ public class SavingAccount extends Account
 	}
 	
 	@Override
-	public void debit( double debitbalance )
+	public void debit( double debitBalance ) throws Exception
 	{
 		if(monthtime >=12)
-			balance = balance - debitbalance;
+		{	
+			balance = balance - debitBalance;
+		}
 		else
-			balance = balance;
+		{	
+			throw new Exception("아직 출금할 수 없습니다.");
+		}
 	}	
 	
 	public void isBankrupted()

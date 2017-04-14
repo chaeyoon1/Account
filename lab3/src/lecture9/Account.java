@@ -23,13 +23,13 @@ public abstract class Account implements Valuable
 	}
 	
 	
-	public void debit( double debitbalance )
+	public void debit( double debitBalance ) throws Exception
 	{
-		balance = balance - debitbalance;
+		balance -= debitBalance;
 	}	
 	
 	//set, get
-	public double getbalance()
+	public double getBalance()
 	{
 		return balance;
 	}
