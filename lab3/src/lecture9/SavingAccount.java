@@ -12,14 +12,14 @@ public class SavingAccount extends Account
 		monthtime = 0;
 		
 	}
-	@Override
+	
 	public double getWithdrawableAccount()
 	{
 		 
 		return balance;
 	}
 	
-	@Override
+	
 	public void passTime(int month)
 	{
 		if(monthtime >= 12) 
@@ -34,7 +34,21 @@ public class SavingAccount extends Account
 		}
 	}
 	
-	@Override
+	public void passTime()
+	{
+		if(monthtime >= 12) 
+		{
+			balance = balance *Math.pow((1+passtimeInterest),12);
+			monthtime = 12;
+		}
+		else 
+		{	
+			monthtime = monthtime + 1;
+			balance = balance;
+		}
+	}
+	
+	
 	public void debit( double debitBalance ) throws Exception
 	{
 		if(monthtime >=12)
@@ -47,14 +61,18 @@ public class SavingAccount extends Account
 		}
 	}	
 	
-	public void isBankrupted()
-	{
-		
-	}
+	
 	//implement method
 	public double estimateValue(int month)
 	{
-		balance = balance *Math.pow((1+passtimeInterest), month);
+		balance = balance*Math.pow((1+passtimeInterest),month);
+		return balance;
+	}
+	
+	public double estimateValue()
+	{
+		
+		balance = balance*Math.pow((1+passtimeInterest),1);
 		return balance;
 	}
 }

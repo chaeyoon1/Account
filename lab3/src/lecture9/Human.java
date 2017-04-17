@@ -16,6 +16,11 @@ public class Human implements Valuable
 		return Double.POSITIVE_INFINITY;
 	}
 	
+	public double estimateValue()
+	{
+		return Double.POSITIVE_INFINITY;
+	}
+	
 	public String getName()
 	{
 		return name;

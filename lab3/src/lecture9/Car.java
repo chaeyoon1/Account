@@ -16,9 +16,17 @@ public class Car implements Valuable
 		if(month >0)
 		{
 			price = price * 0.80;
-			price = price *Math.pow(0.99,month);
+			price = price * Math.pow(0.99,month);
 		}
 		
+		return price;
+	}
+	
+	public double estimateValue()
+	{
+		
+		price = price * 0.80;
+		price = price * Math.pow(0.99,1);
 		return price;
 	}
 	

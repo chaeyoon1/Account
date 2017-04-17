@@ -14,8 +14,8 @@ public abstract class Account implements Valuable
 	public abstract double getWithdrawableAccount();
 	
 	public abstract void passTime(int time);
-		
-	public abstract void isBankrupted();
+	public abstract void passTime();	
+	
 	//credit,debt
 	public void credit ( double creditbalance)
 	{

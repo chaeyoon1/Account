@@ -28,7 +28,7 @@ public class CheckingAccount extends Account
 	   
    }
    
-   @Override
+   
    public void passTime(int month)
    {
 	   if(balance>=0.00)
@@ -45,20 +45,27 @@ public class CheckingAccount extends Account
 	   }
    }
    
-   @Override
-   public void isBankrupted()
+   public void passTime()
    {
-	   if (balance+creditLimit == 0)
+	   balance = balance *Math.pow((1+interest),1);
+   }
+   
+  
+   public boolean isBankrupted()
+   {
+	   if (this.getWithdrawableAccount() < 0)
 	   {
-		   System.out.println("account1 went Bankrupt!");
+		   return true;
+	   } else{
+		   return false;
 	   }
    }
-   @Override
+   
    public void debit ( double debitBalance) throws Exception
    {
 	   if(debitBalance >=0)
 	   {
-		   if(balance - debitBalance>=0)
+		   if(balance +creditLimit - debitBalance>=0)
 				balance = balance - debitBalance;
 		   else 
 		   {
@@ -85,11 +92,24 @@ public class CheckingAccount extends Account
 
 	   if(balance>=0.00)
 	   {
-		   balance = balance *Math.pow((1+interest),month);
+		   balance = balance*Math.pow((1+interest),month);
 	   }
 	   else
 	   {
-		   balance = balance *Math.pow((1+loan_interest),month);
+		   balance = balance*Math.pow((1+loan_interest),month);
+	   }
+	   return balance;
+   }
+   
+   public double estimateValue()
+   {
+	   if(balance>=0.00)
+	   {
+		   balance = balance + (1+interest)*1;
+	   }
+	   else
+	   {
+		   balance = balance*Math.pow((1+loan_interest),1);
 	   }
 	   return balance;
    }
