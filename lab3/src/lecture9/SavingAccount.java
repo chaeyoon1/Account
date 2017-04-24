@@ -3,20 +3,21 @@ package lecture9;
 public class SavingAccount extends Account
 {
 	private double passtimeInterest;
-	private int monthtime;
+	private int monthtime=0;
 	
 	public SavingAccount (double initialBalance,double passtimeInterest)
 	{
 		super(initialBalance);
 		this.passtimeInterest = passtimeInterest;
-		monthtime = 0;
-		
 	}
 	
 	public double getWithdrawableAccount()
 	{
-		 
-		return balance;
+		if(monthtime >= 12){
+			return balance;
+		}else{
+			return 0;
+		}
 	}
 	
 	
@@ -65,14 +66,12 @@ public class SavingAccount extends Account
 	//implement method
 	public double estimateValue(int month)
 	{
-		balance = balance*Math.pow((1+passtimeInterest),month);
-		return balance;
+		return balance*Math.pow((1+passtimeInterest),month);
 	}
 	
 	public double estimateValue()
 	{
 		
-		balance = balance*Math.pow((1+passtimeInterest),1);
-		return balance;
+		return balance = balance*Math.pow((1+passtimeInterest),1);
 	}
 }
