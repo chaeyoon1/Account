@@ -21,17 +21,16 @@ public class SavingAccount extends Account
 	}
 	
 	
-	public void passTime(int month)
+	public void passTime(int time)
 	{
-		if(monthtime >= 12) 
+		if(time >= 12 || monthtime >=12) 
 		{
 			balance = balance *Math.pow((1+passtimeInterest),12);
 			monthtime = 12;
 		}
 		else 
 		{	
-			monthtime = monthtime + month;
-			balance = balance;
+			monthtime = monthtime + time;
 		}
 	}
 	
@@ -45,7 +44,6 @@ public class SavingAccount extends Account
 		else 
 		{	
 			monthtime = monthtime + 1;
-			balance = balance;
 		}
 	}
 	

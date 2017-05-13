@@ -52,9 +52,9 @@ public abstract class Account implements Valuable
 		return sum;
 	}
 	
-	public static void passTimeForList(ArrayList<? extends Account> list, int month)
+	public static void passTimeForList(ArrayList<? extends Account> accountList, int month)
 	{
-		for(Account account : list)
+		for(Account account : accountList)
 		{
 			account.passTime(month);
 		}
